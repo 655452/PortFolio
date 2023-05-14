@@ -386,9 +386,14 @@
         list-style: none;
         margin: 10px 10px;
       }
+.MainImg{width: 400px;height: 100px; 
 
+}
       /*  */
     @media only screen and (max-width: 768px) {
+        .MainImg{width: 330px;height: 100px; 
+
+        }
         .blog {
           flex-direction: column;
           /* border: 2px solid black */

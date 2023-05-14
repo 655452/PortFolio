@@ -14,6 +14,7 @@ let count=1
 let side=0
 function theme(){
     let body=document.querySelector("body")
+    
     if(count===0){
         L.style.backgroundColor="white"
         M.style.backgroundColor="white"
@@ -21,6 +22,7 @@ function theme(){
         // body
         body.style.backgroundColor="#06191D"
         body.style.color="white"
+        
         nav.style.backgroundColor="#06191D"
         nav.style.color="white"
         light.style.transform='translateX(0px)'
@@ -34,9 +36,10 @@ function theme(){
         // body
         body.style.backgroundColor="white"
         body.style.color="#06191D"
+       
     nav.style.backgroundColor="whitesmoke"
     nav.style.color="#06191D"
-    light.style.transform='translateX(-25px)'
+    light.style.transform='translateX(-40px)'
     light.style.transition='1s'
     count--
    }
@@ -74,9 +77,9 @@ function Asit(){
     // S.style.transition="1s"
     // I.style.transition="1s"
    if(Asi===0){
-    S.style.width="40px"
+    S.style.width="20px"
     S.style.display="flex"
-    T.style.width="40px"
+    T.style.width="20px"
     T.style.display="flex"
     Asi++
    }

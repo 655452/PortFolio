@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style2.css">
+    <style>
+        .skills{
+            width: auto;
+            height: 100vh;
+            margin-bottom: 10vh;
+
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+
+        }
+
+        .skills>.react,.skills>.nodejs,.skills>.django,.skills>.javascript,.skills>.flask,.skills>.datascience,.skills>.machlearning{
+            width: 70%;
+            border-radius: 20px;
+            height: 3vh;
+            background: linear-gradient(45deg, pink,purple);
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            color: white;
+            transition: 1s;
+        }
+        .pointer{
+    width: 60%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: rgb(22, 224, 197);
+}
+        .skills>.nodejs>.pointer{
+            width: 73%;
+        }
+        .skills>.django{}
+        .skills>.javascript>.pointer{
+            width: 80%;
+        }
+        .skills>.flask>.pointer{
+            width: 86%;
+        }
+        .skills>.datascience>.pointer{
+            width: 76%;
+        }
+        .skills>.machlearning>.pointer{
+            width: 78%;
+        }
+.skills>.label{
+    /* border: 2px solid red; */
+    width: 80%;
+    text-align: left;
+    font-weight: 800;
+            font-size: xx-large;
+           background-color: rgb(253, 68, 136);
+            clip-path: text;
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent;
+}
+
+
+    </style>
+</head>
+<body>
+   
+    <div class="nav">
+        <li id="menu" onclick="sidebar()""><div class="U"></div><div class="M"></div><div class="L"></div></li>
+         <!-- <li > <div class="logo"></div> </li> -->
+         <li class="dis"> <input id="searchbar" type="text" placeholder="Search "> <button >Search</button></li>
+         <li  style="border: 10px;border: 2px solid rgb(223, 213, 213);border-radius: 20px;margin-right: 20px;">  <div class="dark" onclick="theme()"><div class="DC"></div></div> <div class="light" onclick="theme()"></div></li>
+       
+        </div>
+   <div class="main-wrap">
+    <div id="menu2" >
+  
+        <div class="list">
+           <div class="profile"> <img src="./profile.png" alt=""></div>
+         <li><a href="./portfolio.html">Home</a></li>
+         <li><a href="./About.html">About</a></li>
+         <li>Contact</li>
+         <li>Resume</li>
+         <li><a href="./skills.html">Skills</a></li>
+        </div>
+     </div>
+    
+    <div class="content-wrap" >
+        
+         
+
+     <!-- blog -->
+     <div class="skills">
+        <div class="label" style="text-align: center;">Skills</div>
+        <div class="label">React</div>
+        <div class="react"> <div class="pointer"></div> 60%</div>
+
+        <div class="label">Nodejs</div>
+        <div class="nodejs"><div class="pointer"></div>73%</div>
+
+        <div class="label">Django</div>
+        <div class="django"><div class="pointer"></div>84%</div>
+
+        <div class="label">Javascript</div>
+        <div class="javascript"><div class="pointer"></div>80%</div>
+
+        <div class="label">Flask</div>
+        <div class="flask"><div class="pointer"></div>86%</div>
+
+        <div class="label">Datascience</div>
+        <div class="datascience"><div class="pointer"></div>76%</div>
+
+        <div class="label">Machine Learning</div>
+        <div class="machlearning"><div class="pointer"></div>78%</div>
+       </div>
+
+    </div>
+   </div>
+   
+   <!-- footer -->
+   <footer>
+    <div class="leftF">
+       <div class="ele"><img src="./github.png" alt=""><a href="https://github.com/655452">Github</a></div>
+       <div class="ele"><img src="./linkedin.png" alt=""><a href="https://www.linkedin.com/in/asit-bakade-0b9619206/">Linkdien</a></div>
+       <div class="ele"><img src="./instagram.png" alt=""><a href="https://instagram.com/asitbakade?igshid=ZGUzMzM3NWJiOQ==">Instagram</a></div>
+       <div class="ele"><img src="./whatsapp.png" alt=""><a href="">Whatsapp</a></div>
+    </div>
+    <div class="form">
+       <label for="Enter the Text">Give FeedBack</label>
+
+       <input type="text">
+       <button>Submit</button>
+    </div>
+
+ </footer>
+   
+   
+   <script src="./portScript.js"></script>
+</body>
+</html>

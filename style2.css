@@ -21,11 +21,11 @@
             display: flex;
         }
         .dark,.light{
-            width: 7px;
-            height: 7px;  
+            width: 2px;
+            height: 2px;  
             border-radius: 50%;
            
-            background: linear-gradient(45deg,yellow,rgb(163, 163, 2));
+            background: linear-gradient(45deg,yellow,rgb(234, 109, 71));
             padding: 15px;
             content: '';
         }
@@ -40,7 +40,7 @@
     height: 22px;
     background-color: black;
     border-radius: 50%;
-    transform: translate(0px,-7px);
+    transform: translate(-2px,-7px);
         }
         .circle{
             width: 100px;
@@ -188,7 +188,7 @@
         .main{
            width: auto;
            height: 70vh;
-           background: linear-gradient(45deg,rgb(90, 5, 99),rgb(243, 123, 143));
+           /* background: linear-gradient(45deg,rgb(228, 224, 229),transparent); */
            /* background: linear-gradient(to bottom, #0072ff, #00c6ff);
            background: linear-gradient(to bottom, #2ecc71, #27ae60); */
            display: flex;
@@ -447,13 +447,10 @@ padding: 0px;
 
         }
       }
-.MainImg{
-   width: 400px;
-   height: 100px; 
-
-}
    /* blogcard */
-   
+   .MainImg{width: 400px;height: 100px; 
+
+   }
         .BlogCard,.Bcard{
             margin: 10vh 0px;
             width: auto;
@@ -464,10 +461,12 @@ padding: 0px;
             height: auto;
         }
         .Bcard{
-            height: 40vh;
+            height: 35vh;
             width: 25%;
            background: linear-gradient(45deg,rgb(179, 24, 50),transparent);
-           background: linear-gradient(45deg,rgb(179, 24, 50),rgb(219, 154, 245));
+           background: linear-gradient(45deg,rgb(225, 204, 207),rgb(233, 224, 236));
+           color: black;
+           font-weight: 700;
            border-radius: 20px;
            padding: 20px;
 

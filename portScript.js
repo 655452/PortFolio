@@ -39,7 +39,7 @@ function theme(){
        
     nav.style.backgroundColor="whitesmoke"
     nav.style.color="#06191D"
-    light.style.transform='translateX(-40px)'
+    light.style.transform='translateX(-30px)'
     light.style.transition='1s'
     count--
    }

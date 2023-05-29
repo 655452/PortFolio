@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       form{
+        width: auto;
+       }
+
+        .questions{
+            margin: 2vh auto;
+            border-radius: 15px;
+            background: linear-gradient(45deg,rgb(101, 143, 194),rgb(139, 199, 217));
+            /* background-color: rgb(166, 251, 175); */
+
+            border: 2px solid black;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 10PX;
+        }
+        h3{
+            font-size: large;
+            font-weight: 600;
+            width: 80%;
+            /* background: linear-gradient(45deg,rgb(230, 70, 97),blue); */
+            /* clip-path: text;
+           -webkit-background-clip: text;
+           -webkit-text-fill-color: transparent; */
+
+        }
+        h4:hover{
+            background-color: rgb(225, 217, 217);
+        }
+        h4{
+            padding: 10px;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            width: 80%;
+            margin: 1vh 0px;
+        }
+        @media only screen and (max-width: 768px) {
+        .questions{
+            width: 90%;
+        }
+        }
+
+        #box,.score{
+            /* border: 2px solid black; */
+            font-weight: 700;
+            /* text-align: center; */
+            background-color: rgb(109, 218, 109);
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <form onsubmit="handleSubmit(event)">
+        <h2 id="box">Time  : <div id="timer">0</div></h2>
+       
+    
+    
+        <div class="questions">
+            <h3>What is the capital of France? </h3>
+    <h4>
+        <input type="radio" name="question1" value="1">
+        <label for="">Paris</label>
+    </h4>
+   <h4>
+    <input type="radio" name="question1" value="2" >
+    <label for="">London</label>
+    
+   </h4>
+   <h4>
+    <input type="radio" name="question1" value="3" >
+    <label for="">Rome</label>
+    
+   </h4>
+   <h4>
+    <input type="radio" name="question1" value="4" >
+    <label for="">Berlin</label>
+    
+   </h4>
+
+        </div>
+        <div class="questions">
+            <h3>Which planet is known as the Red Planet?</h3>
+    <h4>
+        <input type="radio" name="question2" value="1">
+        <label for="">Venus</label>
+    </h4>
+   <h4>
+    <input type="radio" name="question2" value="2" >
+    <label for="">Mars</label>
+    
+   </h4>
+   <h4>
+    <input type="radio" name="question2" value="3" >
+    <label for="">Jupiter</label>
+    
+   </h4>
+   <h4>
+    <input type="radio" name="question2" value="4" >
+    <label for="">Saturn</label>
+    
+   </h4>
+
+        </div>
+    
+    <!-- 3 -->
+    <div class="questions">
+        <h3>Who painted the Mona Lisa?</h3>
+<h4>
+    <input type="radio" name="question3" value="1">
+    <label for="">Leonardo da Vinci</label>
+</h4>
+<h4>
+<input type="radio" name="question3" value="2" >
+<label for="">Pablo Picasso</label>
+
+</h4>
+<h4>
+<input type="radio" name="question3" value="3" >
+<label for="">Vincent van Gogh</label>
+
+</h4>
+<h4>
+<input type="radio" name="question3" value="4" >
+<label for="">Michelangelo</label>
+
+</h4>
+
+    </div>
+
+    <!-- 4 -->
+    <div class="questions">
+        <h3>What is the tallest mountain in the world?</h3>
+<h4>
+    <input type="radio" name="question4" value="1">
+    <label for="">Mount Everest</label>
+</h4>
+<h4>
+<input type="radio" name="question4" value="2" >
+<label for="">K2</label>
+
+</h4>
+<h4>
+<input type="radio" name="question4" value="3" >
+<label for="">Makalu</label>
+
+</h4>
+<h4>
+<input type="radio" name="question4" value="4" >
+<label for="">Kangchenjunga</label>
+
+</h4>
+
+    </div>
+    
+   
+
+   
+    <button style="padding: 10px 20px;border-radius: 20px;background-color: rgb(98, 227, 98); margin: 30px;" type="submit" >Submit</button>
+</form>
+<div class="score">
+    <h3>Score <h3 id="score"></h3></h3>
+</div>
+
+
+<script type="text/javascript">
+   let timcount=0
+    let timer=document.getElementById("timer")
+    setInterval(() => {
+        timer.innerHTML=` ${timcount++} sec`
+    }, 1000);
+   let answers=[1,2,1,1]
+   let score=document.getElementById("score")
+   count=0
+   
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log(parseInt(event.target.question1.value)===answers[0])
+        console.log(parseInt(event.target.question2.value)===answers[1])
+        if(parseInt(event.target.question1.value)===answers[0]){
+            count++
+        }
+        if(parseInt(event.target.question2.value)===answers[1]){
+           count++
+        }
+        if(parseInt(event.target.question3.value)===answers[2]){
+           count++
+        }
+        if(parseInt(event.target.question4.value)===answers[3]){
+           count++
+        }
+        percentage=(count/answers.length)*100
+        score.innerHTML=`
+        correct answers = ${count} 
+        <span style="color:red;">wrong answers = ${answers.length-count}</span>
+        percentage=${percentage}%
+        <br>
+        time = ${timcount} seconds`
+    }
+
+</script>
+</body>
+</html>

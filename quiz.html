@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <style>
+      .quiz,.wrap{
+         margin: 0px auto;
+         width: 50%;
+         background-color: rgb(158, 158, 227);
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+         border-radius: 10px 10px 0px 0px;
+         
+      }
+       #options{
+         width: 80%;
+         margin: 0px auto;
+         /* border: 2px solid black; */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         flex-direction: column;
+      } 
+      .question,#op1,#op2,#op3,#op4{
+         padding: 10px;
+         border-radius: 10px;
+         background-color: whitesmoke;
+         width: 70%;
+         margin: 1vh 0px;
+      }
+      .question{
+         width: 80%;
+      }
+      .wrap{
+         width: 90%;
+        border-bottom: 2px solid black;
+        margin: 3vh 0px;
+      }
+      button{
+         padding: 10px 20px;
+         border-radius: 10px;
+         background-color: rgb(67, 240, 116);
+         margin: 3vh 0px;
+         font-weight: 600;
+      }
+      button:hover{
+         background-color: rgb(62, 240, 142);
+      }
+      @media only screen and (max-width: 768px) {
+         .quiz{
+            width: 90%;
+         }
+      }
+   </style>
+</head>
+<body>
+   <div class="quiz">
+      <div class="wrap">
+         
+         <div class="question">
+            <span id="count">1</span>)
+            <span id="question">What is the capital of France?</span>
+         </div>
+         <div id="options" >
+            <div id="op1" > Paris</div>
+         <div id="op2">London</div>
+         <div id="op3">Rome</div>
+         <div id="op4">Berlin</div>
+         
+            
+         </div>
+         
+      </div>
+      <div style="width: auto;">
+         <button id="prev">Prev</button>
+      <button id="next">Next</button>
+      </div>
+
+     
+      
+   </div>
+   <div >Timer   <span id="Timer"> 0 </span> Sec</div>
+   
+   <script>
+
+let timer=0
+      setInterval(() => {
+         let Timer=document.getElementById("Timer")
+         Timer.innerText=timer
+         timer++
+      }, 1000);
+        const questions = [
+  {
+    question: "What is the capital of France?",
+    options: ["Paris", "London", "Rome", "Berlin"],
+    answer: "Paris"
+  },
+  {
+    question: "Which planet is known as the Red Planet?",
+    options: ["Venus", "Mars", "Jupiter", "Saturn"],
+    answer: "Mars"
+  },
+  {
+    question: "Who painted the Mona Lisa?",
+    options: ["Leonardo da Vinci", "Pablo Picasso", "Vincent van Gogh", "Michelangelo"],
+    answer: "Leonardo da Vinci"
+  },
+  {
+    question: "What is the tallest mountain in the world?",
+    options: ["Mount Everest", "K2", "Makalu", "Kangchenjunga"],
+    answer: "Mount Everest"
+  }
+];
+      let count=0
+      let correct=0
+      let options=document.getElementById("options")
+      let ids=""
+      
+      options.addEventListener("click",(e)=>{
+         console.log(e.target.id==="options")
+         
+         if(e.target.innerText===questions[count]["answer"])
+         {
+            setTimeout(() => {
+               e.target.style.backgroundColor="rgb(67, 240, 116)"
+            }, 100);
+            setTimeout(() => {
+               e.target.style.backgroundColor="whitesmoke"
+            }, 800);
+            
+      }
+         else{
+            
+            if(e.target.id==="options"){
+            e.target.style.backgroundColor="transparent"
+         }
+         else{
+            setTimeout(() => {
+               e.target.style.backgroundColor="rgb(238, 87, 104)"
+            }, 100);
+            setTimeout(() => {
+               e.target.style.backgroundColor="whitesmoke"
+            }, 800);
+         }
+        
+            
+         }
+
+    
+         
+         
+})
+let next=document.getElementById("next")
+// next pointer
+next.addEventListener("click",()=>{
+   count++
+   
+
+  let question=document.getElementById("question")
+  let op1=document.getElementById("op1")
+  let op2=document.getElementById("op2")
+  let op3=document.getElementById("op3")
+  let op4=document.getElementById("op4")
+  let ids=document.getElementById("count")
+
+  question.innerText=questions[count]["question"]
+ op1.innerText=questions[count]["options"][0]
+ op2.innerText=questions[count]["options"][1]
+ op3.innerText=questions[count]["options"][2]
+ op4.innerText=questions[count]["options"][3]
+ ids.innerText=count+1
+
+
+   
+      console.log("hello")
+      
+   
+})
+// previous pointer
+let prev=document.getElementById("prev")
+prev.addEventListener("click",()=>{
+   count--
+ 
+   let question=document.getElementById("question")
+  let op1=document.getElementById("op1")
+  let op2=document.getElementById("op2")
+  let op3=document.getElementById("op3")
+  let op4=document.getElementById("op4")
+  let ids=document.getElementById("count")
+
+  question.innerText=questions[count]["question"]
+ op1.innerText=questions[count]["options"][0]
+ op2.innerText=questions[count]["options"][1]
+ op3.innerText=questions[count]["options"][2]
+ op4.innerText=questions[count]["options"][3]
+ ids.innerText=count+1
+})
+      
+      // console.log(questions.length)
+  
+   </script>
+</body>
+</html>

@@ -11,8 +11,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            /* background-color: black;
-            color: whitesmoke; */
+            background-color: rgb(232, 226, 226);
+            /* color: whitesmoke; */
             width: auto;
             height: 10vh;
         }
@@ -40,21 +40,15 @@
     height: 22px;
     background-color: black;
     border-radius: 50%;
-    transform: translate(-2px,-7px);
+    /* transform: translate(-2px,-7px); */
+    transform :translate(-3px,-10px);
         }
         .circle{
             width: 100px;
             height: 100px;
             background-color: green;
         }
-        #searchbar{
-            width: 80%;
-            border:2px solid whitesmoke;
-            border-radius: 20px;
-            border: 2px solid black;
-            color: black;
-            
-        }
+      
         .dis{
             width: 60%;
             display: flex;
@@ -181,13 +175,15 @@
             /* color: white; */
         }
         .list>li:hover{
-           background: linear-gradient(180deg,transparent,rgb(229, 110, 154));
+           background: linear-gradient(180deg,rgb(108, 202, 240),rgb(128, 229, 212));
             color: rgb(33, 21, 21);
+           
         }
         /* main */
         .main{
            width: auto;
            height: 70vh;
+           margin-bottom: 10vh;
            /* background: linear-gradient(45deg,rgb(228, 224, 229),transparent); */
            /* background: linear-gradient(to bottom, #0072ff, #00c6ff);
            background: linear-gradient(to bottom, #2ecc71, #27ae60); */
@@ -198,11 +194,12 @@
            font-size: xx-large;
            flex-direction: column;
         }
-        .main>h1{
+        .main>h1,.Tags{
             background: linear-gradient(45deg,rgb(220, 117, 232),rgb(223, 110, 129));
             clip-path: text;
            -webkit-background-clip: text;
            -webkit-text-fill-color: transparent;
+          width:auto; text-align: center;font-weight: 800;font-size: xx-large; 
         }
         .main>img{
             width: 100%;
@@ -235,9 +232,18 @@
         height: auto;
         padding: 30px ;
         color: black;
+        /* border: 2px solid red; */
+    }
+    .Ablog>img{
+        object-fit: contain;
+        width: 90%;
+        height: auto;
+        margin: 5vh 0px;
+        /* border: 2px solid red; */
     }
    #Blog-content{
     padding: 10px 15vw;
+    font-size: large;
     /* border: 2px solid black; */
    }
    #Blog-content>h1{
@@ -336,8 +342,9 @@
     }
     .ele>img{
        margin-right: 10px;
-        width: 100px;
-        height: 100px;
+      padding: 10px;
+        width: 70px;
+        height: 70px;
         border-radius: 50%;
     }
     .ele>a{
@@ -358,11 +365,17 @@
       }
       .carasole>img{
         transition: 1s;
-        height: 70vh;
+        height: 60vh;
         width: auto;
-        object-fit: cover;
+        object-fit: contain;
         object-position: center;
+        /* border: 2px solid red; */
       }
+    .carasole>img:nth-child(1),.carasole>img:nth-child(3),.carasole>img:nth-child(2)
+    {
+       
+        height: 0px;
+    }
       
       .wrapC{
         /* border: 2px solid black; */
@@ -370,6 +383,7 @@
         display: flex;
         height: auto;
         margin-top: 10vh;
+        /* border: 2px solid red; */
         justify-content: center;
       }
       .dots{
@@ -390,7 +404,13 @@
 
       /*  */
     @media only screen and (max-width: 768px) {
-        .MainImg{width: 330px;height: 100px; 
+        .carasole>img{
+            height: 60vh;
+        }
+        .carasole{
+        height: 60vh;
+        }
+            .MainImg{width: 330px;height: 100px; 
 
         }
         .blog {
@@ -459,6 +479,7 @@ padding: 0px;
             align-items: center;
             flex-wrap: wrap;
             height: auto;
+           
         }
         .Bcard{
             height: 35vh;
@@ -469,6 +490,7 @@ padding: 0px;
            font-weight: 700;
            border-radius: 20px;
            padding: 20px;
+           margin: 3vh 2vw;
 
         }
         .Bcard:hover{

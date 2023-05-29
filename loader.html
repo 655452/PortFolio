@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+ .loader,.main{
+    width: auto;
+    margin: auto;
+    height: 50vh;
+    background-color: rgb(130, 117, 117);
+    background: linear-gradient(45deg,rgb(43, 80, 132),rgb(240, 80, 102));
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+ }
+ .loader>h1{
+    font-weight: 800;
+    font-size: xx-large;
+ }
+ .load{
+     
+    font-size: x-large;
+    font-weight: 800;
+    color: white;
+    border-radius: 50%;
+     width: 10px;
+     height: 10px;
+     /* background-color: red; */
+     position: absolute;
+     top: calc(50%-25px);
+     left: calc(50%-25px);
+     /* animation: circle 2s linear 3; */
+     z-index: 1;
+ }
+ .load:nth-child(1){
+    animation: circle 2s 0s linear 5;
+    /* margin-left: 100px; */
+    margin-right: 70px;
+ }
+ .load:nth-child(2){
+    animation: circle 2s 1s linear 4;
+    /* margin-left: 140px; */
+    margin-right: 30px;
+ }
+ .load:nth-child(3){
+    animation: circle 2s 2s linear 3;
+    margin-left: 20px;
+ }
+ .load:nth-child(4){
+    animation: circle 2s 3s linear 2;
+    margin-left: 60px;
+ } 
+ .main{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+   background: linear-gradient(45deg,rgb(73, 70, 70),rgb(23, 239, 207));
+    z-index: 0;
+
+ }
+ .main:hover{
+    width: 150px;
+    height: 150px;
+    transition: 1s;
+ }
+ @keyframes circle{
+    from
+    {
+        transform: rotate(0deg) translateX(75px) rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg) translateX(75px) rotate(-360deg);
+    }
+ }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <!-- <h1>Welcome to The Planet Of</h1> -->
+<div class="load" style="margin-right: 60px;">
+A
+</div>
+<div class="load" style="margin-right: 20px;" >
+    S
+    </div>
+    <div class="load" style="margin-left: 20px;" >
+        I
+        </div>
+        <div class="load" style="margin-left: 50px;">
+            T
+            </div>
+            <div class="main"></div>
+    </div>
+    
+</body>
+</html>

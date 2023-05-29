@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Quiz App</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+   
+    .container {
+ width: 100%;
+  /* width: 50%; */
+  margin: 0 auto;
+  text-align: center;
+  /* border: 2px solid black; */
+ 
+}
+
+
+h1 {
+  color: #f0e8e8;
+}
+
+#quiz {
+  margin-bottom: 20px;
+  width: auto;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+button:hover{
+    transform: scale(1.1);
+    transition: 0.7s;
+    background-color: rgb(179, 179, 179);
+    color: black;
+    border-left: 2px solid black;
+}
+
+#score {
+  font-weight: bold;
+  margin-top: 20px;
+}
+#submit{
+   font-size: large;
+    border-radius: 10px;
+}
+#submit:hover{
+    background-color: #333;
+  color: #fff;
+}
+#score{
+    background-color: rgb(135, 242, 135);
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: large;
+  
+
+}
+
+@media only screen and (max-width: 768px) {
+    .container{
+    width:auto;
+}
+
+}
+body{
+/* display: flex; */
+/* justify-content: center; */
+/* align-items: center; */
+height: 100vh;
+background-image: url("./Quiz.jpg");
+background-size:cover;
+ background-repeat: no-repeat;
+ background-position: center;
+/* background: linear-gradient(45deg,pink,blue); */
+}
+#time{
+    background-color: rgb(214, 97, 169);
+    background: linear-gradient(45deg,rgb(109, 47, 185),rgb(27, 123, 240));
+    font-weight: 800;
+    padding: 20px;
+    margin: 2vh auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transition: 0.7s;
+    
+}
+#time:hover{
+    transform: scale(1.2);
+    transition: 0.7s;
+}
+#submit:hover{
+     animation: move 1s infinite;
+}
+@keyframes move {
+    0%{
+transform: rotate(15deg);
+    }
+    100%{
+transform: rotate(-15deg);
+    }
+}
+#ques{
+    background-color: #333;
+    border-radius: 20px;
+    padding: 10px;
+    width: 70%;
+    margin: 1vh auto;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <div id="time">Time <h1 id="timer"></h1>sec</div>
+    <h1 style="font-size: xx-large;">Quiz App</h1>
+    <div id="quiz"></div>
+    <button id="submit">Submit</button>
+    <div id="score"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+
+    // timer
+    let timer=document.getElementById("timer")
+    let timecount=0
+    setInterval(() => {
+        timecount++
+        timer.innerText=timecount
+    }, 1000);
+    // Quiz data
+const quizData = [
+  {
+    question: "What is the correct way to declare a JavaScript variable?",
+    options: [" var myVar;", "variable myVar;", "myVar = variable;", "v = myVar;"],
+    correctAnswer: 0
+  },
+  {
+    question: "Which operator is used for strict equality comparison in JavaScript?",
+    options: ["==", "===", "=", "!=="],
+    correctAnswer: 1
+  },
+  {
+    question: "What is the output of the following code snippet?  console.log(5 + '2');",
+    options: ["52", "7", "'52'", "NaN"],
+    correctAnswer: 2
+  },
+  {
+    question: "Which method is used to add an element to the end of an array in JavaScript?",
+    options: ["push()", "pop()", "concat()", "slice()"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the result of the following expression in JavaScript? (typeof null;)",
+    options: ["object", "null", "undefined", "string"],
+    correctAnswer: 0
+  },
+  {
+    question: "What is the correct way to check if a variable is an array in JavaScript?",
+    options: ["typeof myArray === 'array'", "myArray instanceof Array", "Array.isArray(myArray)", "myArray.isArray()"],
+    correctAnswer: 2
+  }
+  ,
+  {
+    question: "Which function is used to convert a string to an integer in JavaScript? ",
+    options: ["parseInt()", "toInteger()", "toInt()", "stringToInt()"],
+    correctAnswer: 1
+  },
+  
+  {
+    question: "What is the result of the following expression in JavaScript? (1 + '1' - 1;)",
+    options: ["1", "10", "11", "0"],
+    correctAnswer: 1
+  },
+];
+
+const quizContainer = document.getElementById("quiz");
+const submitButton = document.getElementById("submit");
+const scoreContainer = document.getElementById("score");
+
+let currentQuestion = 0;
+let score = 0;
+
+// Initialize the quiz
+function initQuiz() {
+  showQuestion();
+}
+
+// Display the current question and options
+function showQuestion() {
+  const questionData = quizData[currentQuestion];
+  const questionElement = document.createElement("div");
+  questionElement.innerHTML = `<h2 id="ques">${questionData.question}</h2>`;
+  questionElement.style.padding="10px 20px"
+
+  for (let i = 0; i < questionData.options.length; i++) {
+    const option = questionData.options[i];
+    const optionElement = document.createElement("button");
+    optionElement.innerHTML= `<h2 >${option}</h2>`;
+    optionElement.style.borderRadius="10px"
+    optionElement.style.textAlignLast="left"
+    optionElement.style.margin="10px auto"
+    optionElement.style.fontSize="x-large"
+    optionElement.style.width="65%"
+    // creating dynamic style steets
+    optionElement.id="respon"
+    const styleSheet = new CSSStyleSheet();
+    const mediaQuery = '@media only screen and (max-width: 600px) { #respon { width:80%; } }';
+   
+    styleSheet.insertRule(mediaQuery);
+    document.adoptedStyleSheets = [styleSheet];
+
+    optionElement.addEventListener("click", function() {
+      selectAnswer(i);
+    });
+    questionElement.appendChild(optionElement);
+    // questionElement.style.border="2px solid red"
+    questionElement.style.margin="0px auto"
+    questionElement.style.width="80%"
+    questionElement.style.display="flex"
+    questionElement.style.flexDirection="column"
+    questionElement.style.fontSize="xx-large"
+    questionElement.style.fontWeight="700"
+    questionElement.style.color="white"
+    
+  }
+
+  quizContainer.innerHTML = "";
+  quizContainer.appendChild(questionElement);
+}
+
+// Check if the selected answer is correct
+function selectAnswer(selectedIndex) {
+  const questionData = quizData[currentQuestion];
+  if (selectedIndex === questionData.correctAnswer) {
+    score++;
+  }
+
+  currentQuestion++;
+
+  if (currentQuestion < quizData.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
+}
+
+// Display the final score
+function showScore() {
+  quizContainer.style.display = "none";
+  submitButton.style.display = "none";
+  percentage=(score/quizData.length)*100
+  scoreContainer.style.padding="20px"
+  scoreContainer.style.width="60%"
+  scoreContainer.style.margin="5vh auto"
+  scoreContainer.innerHTML = `Your score: 
+  ${score*10} out of ${quizData.length} Questions
+  <br>Percentage  ${percentage}%
+  <br>Time=${timecount} seconds
+  <br>
+  <h1 style="color:black;">Congratulations on Your Achievement!</h1>
+  <p>Great job ! 🎉👏</p>`;
+}
+
+// Start the quiz
+initQuiz();
+
+  </script>
+</body>
+</html>
